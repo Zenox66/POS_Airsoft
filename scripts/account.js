@@ -114,7 +114,9 @@ function verifyEmployeeRegistration(username, password, confirmPassword){
     let newEmployee = new Cashier(username, password);
     users.push(newEmployee);
     saveUsers(users);
-    return true;
+    setTimeout(() => {
+        window.location.href = "login.html";
+    }, 1000);
 }
 
 function verifyRegistration(username, password, confirmPassword){
@@ -142,7 +144,9 @@ function verifyRegistration(username, password, confirmPassword){
     let newUser = new Customer(username, password);
     users.push(newUser);
     saveUsers(users);
-    return true;
+    setTimeout(() => {
+        window.location.href = "login.html";
+    }, 1000);
 }
 
 // LOGIN FUNCTION
@@ -158,7 +162,6 @@ function login(){
     verifyLogin(username, password);
 }
 
-
 // LOGIN VALIDATION
 function verifyLogin(username, password){
 
@@ -168,7 +171,7 @@ function verifyLogin(username, password){
         showMessage("Welcome Admin!", "green");
 
         setTimeout(() => {
-            window.location.href = "../admin.html";
+            window.location.href = "../authorized/admin.html";
         }, 1000);
 
         return;
@@ -188,13 +191,12 @@ function verifyLogin(username, password){
     // Role-based redirect
     setTimeout(() => {
         if (foundUser.role === "cashier") {
-            window.location.href = "../cashier.html";
+            window.location.href = "../authorized/cashier.html";
         } else {
             window.location.href = "../home.html";
         }
     }, 1000);
 }
-
 
 // LOGOUT FUNCTION
 function logout(){

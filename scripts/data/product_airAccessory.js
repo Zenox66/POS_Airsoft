@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "name": "Streamlight TLR-1 HP-X USB Gun Light (SL-B9 Battery, 69168)",
+        "price": "$259.99",
+        "serialNumber": "SL-TLR1HPX-USB",
+        "image": "../assets/airsoft_gear/1.jpg",
+    },
+    {
+        "id": 2,
+        "name": "Revanchist Airsoft Hi Capa Airsoft GBB Slide Stop Thumb Rest (Aluminum, Black)",
+        "price": "$30.99",
+        "serialNumber": "RA-HICAPA-GBB-SLIDE-STOP-THUMB-REST",
+        "image": "../assets/airsoft_gear/2.jpg",
+    },
+    {
+        "id": 3,
+        "name": "RWA BAD Authority Elite Ambi Receiver Set for Tokyo Marui MWS GBBR (Battle Arms Development Licensed)",
+        "price": "$455.99",
+        "serialNumber": "RWA-BAD-AUTHORITY-ELITE-AMBIDEXTEROUS-RECEIVER-SET",
+        "image": "../assets/airsoft_gear/3.jpg",
+    },
+    {
+        "id": 4,
+        "name": "Vector Optics Scrapper 1x25 MRT Red Dot & Paragon 3x Magnifier Kit w/ Integrated One-Piece Picatinny Moun",
+        "price": "$422.99",
+        "serialNumber": "VO-SCRAPPER-1X25-MRT-RED-DOT-PARAGON-3X-MAGNIFIER-KIT",
+        "image": "../assets/airsoft_gear/4.jpg",
+    },
+    {
+        "id": 5,
+        "name": "5KU Aluminum XL Infinity Magwell for Aluminum Grip Only - Matte Black",
+        "price": "$19.99",
+        "serialNumber": "5KU-ALUMINUM-XL-INFINITY-MAGWELL",
+        "image": "../assets/airsoft_gear/5.jpg",
+    }
+]
