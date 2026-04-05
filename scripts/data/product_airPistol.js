@@ -4,34 +4,34 @@
         "name": "Tokyo Marui CURVE Compact Carry Gas Airsoft Pistol (Fixed Slide)",
         "price": "$69.99",
         "serialNumber": "TM-CURVE-CC-GAS",
-        "image": "../assets/airsoft_pistol/1.jpg",
+        "image": "../assets/airsoft_pistol/1.jpg"
     },
     {
         "id": 2,
         "name": "Crown Walther P99 Compact Spring Air Cocking Pistol (Licensed by Umarex & Carl Walther)",
         "price": "$29.99",
         "serialNumber": "CR-WALTHER-P99-COMPACT-SPRING",
-        "image": "../assets/airsoft_pistol/2.jpg",
+        "image": "../assets/airsoft_pistol/2.jpg"
     },
     {
         "id": 3,
         "name": "FCW Kongsberg M1914 Airsoft GBB Pistol",
         "price": "$180.99",
         "serialNumber": "FCW-KONGSBERG-M1914",
-        "image": "../assets/airsoft_pistol/3.jpg",
+        "image": "../assets/airsoft_pistol/3.jpg"
     },
     {
         "id": 4,
         "name": "Army Armament John Wick 3 Taran Tactical Combat Master GBB Airsoft Pistol",
         "price": "$124.99",
         "serialNumber": "AA-JW3-TARAN-COMBAT-MASTER",
-        "image": "../assets/airsoft_pistol/4.jpg",
+        "image": "../assets/airsoft_pistol/4.jpg"
     },
     {
         "id": 5,
         "name": "Umarex HK VP9 GBB Airsoft Pistol - Black (Deluxe Version) (by VFC)",
         "price": "$149.99",
         "serialNumber": "UM-HK-VP9-GBB",
-        "image": "../assets/airsoft_pistol/5.jpg",
+        "image": "../assets/airsoft_pistol/5.jpg"
     }
 ]

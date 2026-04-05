@@ -1,32 +1,37 @@
 [
     {
         "id": 1,
-        "name": "airsoft",
-        "price": 100,
-        "image": "../assets/airsoft_accessory/1.jpg",
+        "name": "Novritsch ASPC - Airsoft Plate Carrier - Black",
+        "price": "$219.99",
+        "serialNumber": "ASPC-BLACK",
+        "image": "../assets/airsoft_gear/1.jpg"
     },
     {
         "id": 2,
-        "name": "airsoft",
-        "price": 100,
-        "image": "../assets/airsoft_accessory/2.jpg",
+        "name": "Pyramex Capstone Direct/Indirect Vent Safety Goggles with Gray Frame and Dual Clear Anti-Fog Lens",
+        "price": "$18.99",
+        "serialNumber": "PYRAMEX-CAPSTONE-GOGGLES",
+        "image": "../assets/airsoft_gear/2.jpg"
     },
     {
         "id": 3,
-        "name": "airsoft",
-        "price": 100,
-        "image": "../assets/airsoft_accessory/3.jpg",
+        "name": "Earmor M12 Headset Adapter for EXFIL Type Helmet Rails (Exfil 3.0)",
+        "price": "$18.99",
+        "serialNumber": "EARMOR-M12-ADAPTER",
+        "image": "../assets/airsoft_gear/3.jpg"
     },
     {
         "id": 4,
-        "name": "airsoft",
-        "price": 100,
-        "image": "../assets/airsoft_accessory/4.jpg",
+        "name": "PIG Full Dexterity Tactical (FDT-Alpha Touch) Glove (S Size / Woodland)",
+        "price": "$52.99",
+        "serialNumber": "PIG-FDT-ALPHA-TOUCH-GLOVE",
+        "image": "../assets/airsoft_gear/4.jpg"
     },
     {
         "id": 5,
-        "name": "airsoft",
-        "price": 100,
-        "image": "../assets/airsoft_accessory/5.jpg",
+        "name": "TMC SPT Mesh Airsoft Mask - Wolf Grey",
+        "price": "$16.99",
+        "serialNumber": "TMC-SPT-MESH-AIRSOFT-MASK-WOLF-GREY",
+        "image": "../assets/airsoft_gear/5.jpg"
     }
 ]
