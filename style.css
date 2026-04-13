@@ -1,6 +1,7 @@
 :root{
     --background-color: #02370b;
     --main-color: #5bff00;
+    --secondary-color: #448122;
     --black-color: #000000;
     --white-color: #ffffff;
     --red-highlight: #ff3131;
@@ -12,6 +13,7 @@ body{
     margin: 0;
     padding: 0;
 }
+
 /** SIDE NAV **/
 .sidenav{
     height: 100%;
@@ -89,6 +91,10 @@ header p {
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+}
+
+.container a {
+    margin: 5px;
 }
 
 .container button{

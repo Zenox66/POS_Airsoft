@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Inventory</h1>
+        <button onclick="goBack()">← Back to POS</button>
+    </div>
+
+    <h3>Add Product</h3>
+    <input id="newName" placeholder="Name">
+    <input id="newPrice" placeholder="Price ($)">
+    <input id="newStock" placeholder="Stock">
+    <button onclick="addProduct()">Add</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="inventoryTable"></tbody>
+    </table>
+
+<script src="scripts/inventory.js"></script>
+</body>
+</html>
