@@ -115,7 +115,7 @@ function verifyEmployeeRegistration(username, password, confirmPassword){
     users.push(newEmployee);
     saveUsers(users);
     setTimeout(() => {
-        window.location.href = "login.html";
+        window.location.href = "Login.html";
     }, 1000);
 }
 
