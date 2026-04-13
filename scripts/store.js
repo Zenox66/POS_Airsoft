@@ -17,8 +17,12 @@ let listProducts = [];
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // OPEN/CLOSE CART
-openCartBtn.onclick = () => cartPanel.classList.add("active");
-closeCartBtn.onclick = () => cartPanel.classList.remove("active");
+function openCart() {
+    document.getElementById("cartPanel").style.width = "350px";
+}
+function closeCart() {
+    document.getElementById("cartPanel").style.width = "0";
+}
 
 // PRICE HELPER
 function getPriceNumber(priceString) {

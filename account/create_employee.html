@@ -10,18 +10,16 @@
     <header>
         <img src="../assets/Logo.png" alt="Store Logo" width="200" height="200">
         <div class="navbar">
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../store.html">Store</a></li>
-                <li><a href="../about.html">About</a></li>
-                <li><a href="../account/Login.html">Login</a> / <a href="../account/Register.html">Sign Up</a></li>
-            </ul>
+            <a href="../index.html">Home</a>
+            <a href="../account/Login.html">Login</a>
+            <a href="../account/create_employee.html">Sign Up</a>
         </div>
     </header>
-    <form id="register_form_employee">
-        <input type="text" id="username_input" name="Username">
-        <input type="password" id="password_input" name="Password">
-        <input type="password" id="password_Confirmation" name="Repeat Password">
+    <form id="register_form_employee" class="container">
+        <h1>Reigsteration Form</h1>
+        <input type="text" id="username_input" name="Username" placeholder="Username">
+        <input type="password" id="password_input" name="Password" placeholder="Password">
+        <input type="password" id="password_Confirmation" name="Repeat Password" placeholder="Confirm Password">
         <button type="submit">Submit</button>
     </form>
     <script src="../scripts/account.js"></script>    

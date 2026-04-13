@@ -1,6 +1,7 @@
 :root{
     --background-color: #02370b;
     --main-color: #5bff00;
+    --secondary-color: #448122;
     --black-color: #000000;
     --white-color: #ffffff;
     --red-highlight: #ff3131;
@@ -50,34 +51,39 @@ header {
 
 /* CART */
 .cart {
-    width: 30%;
-    background: var(--background-color);
-    color: var(--main-color);
-    padding: 10px;
+    height: 100%;
+    width: 0;
     position: fixed;
-    right: -100%;
     top: 0;
-    height: 100vh; /* full screen */
+    right: 0;
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
-    transition: 0.3s;
 }
 
-.cart.active {
-    right: 0;
+.cart .closebtn {
+    position: absolute;
+    color: var(--main-color);
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    text-decoration: none;
 }
 
-/* THIS is the important part */
 #cartItems {
     overflow-y: auto;
-    flex: 1; /* takes remaining space */
-    margin-bottom: 10px;
+    flex: 1;
+    padding: 10px;
 }
 
 .cart-footer {
     border-top: 1px solid #ccc;
-    padding-top: 10px;
-    padding-bottom: 15px;
+    padding: 10px;
+    margin: 15px;
 }
 
 button {

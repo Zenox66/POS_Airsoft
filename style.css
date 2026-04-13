@@ -8,7 +8,6 @@
 
 body{
     background-color: var(--background-color);
-    color: var(--white-color);
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
@@ -81,68 +80,19 @@ header p {
     font-style: italic;
 }
 
-/** NAVBAR **/
-.navbar ul {
+.container{
+    margin: 50px;
+    padding: 50px;
+    background-color: var(--main-color);
     display: flex;
-    gap: 3em;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
 }
 
-.navbar ul li {
-    list-style: none;
-    padding: 10px 15px;
-    border: 1px dotted var(--black-color);
-}
-
-.navbar ul li a {
-    text-decoration: none;
-    transition: 0.3s ease;
-    border-bottom: 3px solid transparent;
-    font-size: 1.4rem;
-    color: var(--black-color);
-    transition: 0.3s ease;
-    border-bottom: 3px solid transparent;
-}
-
-.navbar ul li a:hover, .navbar ul li a.active {
-    color: var(--black-color);
-    border-bottom: 3px solid var(--red-highlight);
-}
-
-.shop {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    padding: 20px;
-    gap: 20px;
-}
-
-.card {
-    background: #111;
-    border: 2px solid red;
-    padding: 15px;
-    text-align: center;
-    transition: 0.3s;
-    position: relative;
-}
-
-.card:hover {
-    transform: scale(1.05) rotate(-1deg);
-    box-shadow: 0 0 15px red;
-}
-
-.card img {
-    width: 100%;
-    border-bottom: 2px solid red;
-}
-
-.card h2 {
-    margin: 10px 0;
-    color: red;
-}
-
-.card p {
-    color: #ccc;
+.container button{
+    margin: 15px;
 }
 
 button {
