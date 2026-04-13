@@ -13,15 +13,19 @@
         <a href="Login.html">Login</a>
         <a href="create_employee.html">Sign Up</a>
     </div>
-    <form id="register_form">
-        <div>
-            <img src="../assets/Logo.png" alt="Store Logo" width="200" height="200">
-        </div>
-        <input type="text" id="username_input" name="Username">
-        <input type="password" id="password_input" name="Password">
-        <input type="password" id="password_Confirmation" name="Repeat Password">
-        <button type="submit">REGISTER</button>
-    </form>
-    <script src="../scripts/account.js"></script>    
+    <div id="main">
+        <form id="register_form">
+            <div>
+                <img src="../assets/Logo.png" alt="Store Logo" width="200" height="200">
+            </div>
+            <span onclick="openNav()">open</span>
+            <input type="text" id="username_input" name="Username">
+            <input type="password" id="password_input" name="Password">
+            <input type="password" id="password_Confirmation" name="Repeat Password">
+            <button type="submit">REGISTER</button>
+        </form>
+    </div>
+    <script src="../scripts/account.js"></script>  
+    <script src="../scripts/sidenav.js"></script> 
 </body>
 </html>
