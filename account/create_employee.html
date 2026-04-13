@@ -7,15 +7,16 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header>
-        <img src="../assets/Logo.png" alt="Store Logo" width="200" height="200">
-        <div class="navbar">
-            <a href="../index.html">Home</a>
-            <a href="../account/Login.html">Login</a>
-            <a href="../account/create_employee.html">Sign Up</a>
-        </div>
-    </header>
+    <div id="Sidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="../index.html">Home</a>
+        <a href="Login.html">Login</a>
+        <a href="create_employee.html">Sign Up</a>
+    </div>
     <form id="register_form_employee" class="container">
+        <div>
+            <img src="../assets/Logo.png" alt="Store Logo" width="200" height="200">
+        </div>
         <h1>Reigsteration Form</h1>
         <input type="text" id="username_input" name="Username" placeholder="Username">
         <input type="password" id="password_input" name="Password" placeholder="Password">
