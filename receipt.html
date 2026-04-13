@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Receipt</title>
+<style>
+    body {
+        font-family: "Courier New", monospace;
+        background: #eee;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .receipt {
+        width: 280px;
+        background: white;
+        padding: 15px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+
+    h2, p {
+        margin: 2px 0;
+        text-align: center;
+    }
+
+    .left { text-align: left; }
+    .right { text-align: right; }
+    .row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+    }
+
+    .line {
+        border-top: 1px dashed black;
+        margin: 8px 0;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+
+    .small {
+        font-size: 12px;
+    }
+
+    button {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    @media print {
+        body {
+            background: white;
+        }
+        button {
+            display: none;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="receipt">
+    <img src="assets/Logo_gray.png" alt="Store Logo" width="200" height="200">
+    <p class="small">75 P. Domingo Street, Carmona, Makati City, 1207 Metro Manila, Philippines</p>
+    <p class="small">PHONE#: +63396021923</p>
+
+    <div class="line"></div>
+
+    <div id="datetime" class="small"></div>
+
+    <div class="line"></div>
+
+    <div class="row bold">
+        <span>QTY ITEM</span>
+        <span>TOTAL</span>
+    </div>
+
+    <div id="receiptItems"></div>
+
+    <div class="line"></div>
+
+    <div class="row">
+        <span>Subtotal</span>
+        <span id="subtotal"></span>
+    </div>
+
+    <div class="row bold">
+        <span>Total</span>
+        <span id="total"></span>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="row">
+        <span>Cash</span>
+        <span id="cash"></span>
+    </div>
+
+    <div class="row">
+        <span>Change</span>
+        <span id="change"></span>
+    </div>
+
+    <div class="line"></div>
+
+    <p class="small">Thank you for Purchasing!</p>
+
+</div>
+
+<script src="scripts/receipt.js"></script>
+
+</body>
+</html>

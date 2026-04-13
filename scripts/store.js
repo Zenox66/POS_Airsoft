@@ -1,20 +1,38 @@
-let openCartBtn = document.getElementById("addtoCart");
-let closeCartBtn = document.getElementById("close");
+// ELEMENTS
+let openCartBtn = document.getElementById("openCart");
+let closeCartBtn = document.getElementById("closeCart");
 let cartPanel = document.getElementById("cartPanel");
 
 let listProductHTML = document.getElementById("listProducts");
 let cartItemsHTML = document.getElementById("cartItems");
 let totalPriceHTML = document.getElementById("totalPrice");
 
+let cashInput = document.getElementById("cashInput");
+let changeOutput = document.getElementById("changeOutput");
+
+cashInput.addEventListener("input", updateChange);
+
+// DATA HANDLING
 let listProducts = [];
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+// OPEN/CLOSE CART
 openCartBtn.onclick = () => cartPanel.classList.add("active");
 closeCartBtn.onclick = () => cartPanel.classList.remove("active");
 
+// PRICE HELPER
+function getPriceNumber(priceString) {
+    return parseFloat(priceString.replace("$", ""));
+}
+
+// SAVE CART
+function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
 // ADD TO CART
 function addtoCart(category, id) {
-    let product = listProducts.find(p => p.id === id);
+    let product = listProducts.find(p => p.id === id && p.category === category);
 
     if (!product) return;
 
@@ -23,42 +41,39 @@ function addtoCart(category, id) {
     if (existing) {
         existing.quantity++;
     } else {
-        cart.push({ ...product, category, quantity: 1 });
+        cart.push({ ...product, quantity: 1 });
     }
 
     saveCart();
     renderCart();
 }
 
-// REMOVE ITEM
+// REMOVE
 function removeCart(id, category) {
     cart = cart.filter(p => !(p.id === id && p.category === category));
     saveCart();
     renderCart();
 }
 
-// SAVE CART
-function saveCart() {
-    localStorage.setItem("cart", JSON.stringify(cart));
-}
-
 // DISPLAY PRODUCTS
-const addDataToHTML = () => {
+function addDataToHTML() {
     listProductHTML.innerHTML = '';
 
     listProducts.forEach(product => {
-        let newProduct = document.createElement('div');
-        newProduct.classList.add('item');
+        let div = document.createElement('div');
+        div.classList.add('item');
 
-        newProduct.innerHTML = `
+        div.innerHTML = `
             <img src="${product.image}" width="100">
-            <h2>${product.name}</h2>
+            <h3>${product.name}</h3>
             <p>${product.price}</p>
-            <button>Add to Cart</button>
+            <button>Add</button>
         `;
-        newProduct.querySelector("button")
-            .addEventListener("click", () => addtoCart("airRifle", product.id));
-        listProductHTML.appendChild(newProduct);
+
+        div.querySelector("button")
+            .addEventListener("click", () => addtoCart(product.category, product.id));
+
+        listProductHTML.appendChild(div);
     });
 }
 
@@ -68,48 +83,127 @@ function renderCart() {
     let total = 0;
 
     cart.forEach(item => {
-        let price = parseFloat(item.price.replace("$", ""));
+        let price = getPriceNumber(item.price);
         total += price * item.quantity;
 
         let div = document.createElement("div");
+
         div.innerHTML = `
             <p>${item.name}</p>
-            <p>${item.quantity} x $${price}</p>
-            <button>Remove</button>
+            <p>$${price.toFixed(2)} x ${item.quantity}</p>
+            <button class="minus">-</button>
+            <button class="plus">+</button>
+            <button class="remove">Remove</button>
         `;
 
-        div.querySelector("button")
-            .addEventListener("click", () => removeCart(item.id, item.category));
+        div.querySelector(".minus").onclick = () => {
+            item.quantity--;
+            if (item.quantity <= 0) {
+                removeCart(item.id, item.category);
+            } else {
+                saveCart();
+                renderCart();
+            }
+        };
+
+        div.querySelector(".plus").onclick = () => {
+            item.quantity++;
+            saveCart();
+            renderCart();
+        };
+
+        div.querySelector(".remove").onclick = () => {
+            removeCart(item.id, item.category);
+        };
 
         cartItemsHTML.appendChild(div);
     });
 
     totalPriceHTML.innerText = "Total: $" + total.toFixed(2);
+
+    updateChange();
+}
+
+// UPDATE CHANGE
+function updateChange() {
+    let cash = parseFloat(cashInput.value);
+
+    let total = cart.reduce((sum, item) => {
+        return sum + getPriceNumber(item.price) * item.quantity;
+    }, 0);
+
+    if (isNaN(cash)) {
+        changeOutput.innerText = "Change: $0.00";
+        return;
+    }
+
+    let change = cash - total;
+
+    changeOutput.innerText = "Change: $" + change.toFixed(2);
 }
 
 // CHECKOUT
 document.getElementById("checkoutBtn").onclick = () => {
+    document.getElementById("checkoutBtn").onclick = () => {
+    let cash = parseFloat(cashInput.value);
+
     if (cart.length === 0) {
         alert("Cart is empty!");
         return;
     }
 
-    alert("Checkout successful! (Demo only)");
+    let total = cart.reduce((sum, item) => {
+        return sum + getPriceNumber(item.price) * item.quantity;
+    }, 0);
+
+    if (isNaN(cash) || cash < total) {
+        alert("Insufficient cash!");
+        return;
+    }
+
+    let change = cash - total;
+
+    localStorage.setItem("receipt", JSON.stringify({
+        cart: [...cart],
+        total,
+        cash,
+        change
+    }));
 
     cart = [];
     saveCart();
-    renderCart();
-}
 
-// LOAD DATA
-const initStore = () => {
-    fetch("data/product_airRifle.json")
-        .then(res => res.json())
-        .then(data => {
-            listProducts = data;
-            addDataToHTML();
-            renderCart(); // load saved cart
-        });
-}
+    window.location.href = "../receipt.html";
+    };
+};
+
+// LOAD ALL JSON FILES
+const initStore = async () => {
+    const files = [
+        { path: "scripts/data/product_airsoft_accessory.json", category: "accessory" },
+        { path: "scripts/data/product_airsoft_gear.json", category: "gear" },
+        { path: "scripts/data/product_airsoft_pistol.json", category: "pistol" },
+        { path: "scripts/data/product_airsoft_rifle.json", category: "rifle" }
+    ];
+
+    let allProducts = [];
+
+    for (let file of files) {
+        let res = await fetch(file.path);
+        let data = await res.json();
+
+        let withCategory = data.map(p => ({
+            ...p,
+            category: file.category
+        }));
+
+        allProducts = [...allProducts, ...withCategory];
+    }
+
+    listProducts = allProducts;
+
+    addDataToHTML();
+    renderCart();
+};
 
 initStore();

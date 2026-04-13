@@ -171,7 +171,7 @@ function verifyLogin(username, password){
         showMessage("Welcome Admin!", "green");
 
         setTimeout(() => {
-            window.location.href = "../authorized/admin.html";
+            window.location.href = "../admin.html";
         }, 1000);
 
         return;
@@ -191,9 +191,9 @@ function verifyLogin(username, password){
     // Role-based redirect
     setTimeout(() => {
         if (foundUser.role === "cashier") {
-            window.location.href = "../authorized/cashier.html";
+            window.location.href = "../cashier.html";
         } else {
-            window.location.href = "../home.html";
+            window.location.href = "../store.html";
         }
     }, 1000);
 }

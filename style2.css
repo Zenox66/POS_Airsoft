@@ -1,0 +1,86 @@
+:root{
+    --background-color: #02370b;
+    --main-color: #5bff00;
+    --black-color: #000000;
+    --white-color: #ffffff;
+    --red-highlight: #ff3131;
+}
+
+#openCart{
+    width: 100px;
+    height: 100px;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--white-color);
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: var(--main-color);
+    color: var(--black-color);
+}
+
+.container {
+    display: flex;
+}
+
+/* PRODUCTS */
+.products {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 10px;
+    background-color: var(--background-color);
+    color: var(--main-color);
+}
+
+.item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+/* CART */
+.cart {
+    width: 30%;
+    background: var(--background-color);
+    color: var(--main-color);
+    padding: 10px;
+    position: fixed;
+    right: -100%;
+    top: 0;
+    height: 100vh; /* full screen */
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+}
+
+.cart.active {
+    right: 0;
+}
+
+/* THIS is the important part */
+#cartItems {
+    overflow-y: auto;
+    flex: 1; /* takes remaining space */
+    margin-bottom: 10px;
+}
+
+.cart-footer {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+button {
+    margin: 5px;
+    padding: 5px 10px;
+}
