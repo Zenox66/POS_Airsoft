@@ -11,7 +11,7 @@
         "name": "Crown Walther P99 Compact Spring Air Cocking Pistol (Licensed by Umarex & Carl Walther)",
         "price": "$29.99",
         "serialNumber": "CR-WALTHER-P99-COMPACT-SPRING",
-        "image": "../assets/airsoft_pistol/2.jpg"
+        "image": "/../assets/airsoft_pistol/2.jpg"
     },
     {
         "id": 3,
