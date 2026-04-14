@@ -4,7 +4,7 @@
         "name": "Tokyo Marui CURVE Compact Carry Gas Airsoft Pistol (Fixed Slide)",
         "price": "$69.99",
         "serialNumber": "TM-CURVE-CC-GAS",
-        "image": "../assets/airsoft_pistol/1.jpg"
+        "image": "/../assets/airsoft_pistol/1.jpg"
     },
     {
         "id": 2,
@@ -18,7 +18,7 @@
         "name": "FCW Kongsberg M1914 Airsoft GBB Pistol",
         "price": "$180.99",
         "serialNumber": "FCW-KONGSBERG-M1914",
-        "image": "../assets/airsoft_pistol/3.jpg"
+        "image": "/../assets/airsoft_pistol/3.jpg"
     },
     {
         "id": 4,
