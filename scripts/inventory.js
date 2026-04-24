@@ -2,6 +2,47 @@ let products = JSON.parse(localStorage.getItem("products")) || [];
 
 let table = document.getElementById("inventoryTable");
 
+async function initializeProducts() {
+    let stored = localStorage.getItem("products");
+
+    if (!stored) {
+        try {
+            const files = [
+                "scripts/data/product_airsoft_accessory.json",
+                "scripts/data/product_airsoft_gear.json",
+                "scripts/data/product_airsoft_pistol.json",
+                "scripts/data/product_airsoft_rifle.json"
+            ];
+            
+            let results = await Promise.all(
+                files.map(file => fetch(file).then(res => {
+                    console.log(file, res.status);
+                    if (!res.ok) throw new Error(file + " not found");
+                    return res.json();
+                }))
+            );
+            
+            products = results.flat().map((p, index) => ({
+                ...p,
+                id: Date.now() + index
+            }));
+
+            localStorage.setItem("products", JSON.stringify(products));
+
+            console.log("Loaded all JSON files:", products);
+
+        } catch (err) {
+            console.error("Error loading JSON files:", err);
+            alert("Check your JSON paths or server.");
+            products = [];
+        }
+    } else {
+        products = JSON.parse(stored);
+    }
+
+    renderTable();
+}
+
 // DISPLAY PRODUCTS
 function renderTable() {
     table.innerHTML = "";
@@ -12,10 +53,12 @@ function renderTable() {
         row.innerHTML = `
             <td>${p.name}</td>
             <td>
-                <input value="${p.price}" onchange="updatePrice(${index}, this.value)">
+                <input value="${p.price}" type="number" step="0.01"
+                onchange="updatePrice(${index}, this.value)">
             </td>
             <td>
-                <input value="${p.stock}" onchange="updateStock(${index}, this.value)">
+                <input value="${p.stock}" 
+                onchange="updateStock(${index}, this.value)">
             </td>
             <td>
                 <button onclick="deleteProduct(${index})">Delete</button>
@@ -28,8 +71,7 @@ function renderTable() {
 
 // UPDATE PRICE
 function updatePrice(index, value) {
-    if (!value.startsWith("$")) value = "$" + value;
-    products[index].price = value;
+    products[index].price = parseFloat(value) || 0;
     save();
 }
 
@@ -62,7 +104,7 @@ function addProduct() {
     products.push({
         id: Date.now(),
         name,
-        price: price.startsWith("$") ? price : "$" + price,
+        price: parseFloat(price) || 0,
         stock,
         category: "custom",
         image: "https://via.placeholder.com/100"
@@ -79,8 +121,8 @@ function save() {
 
 // BACK
 function goBack() {
-    window.location.href = "index.html";
+    window.location.href = "admin.html";
 }
 
 // INIT
-renderTable();
+initializeProducts();

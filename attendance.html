@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="Sidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="cashier.html">Home</a>
+        <a href="store.html">Menu</a>
+    </div>
+    <div id="main">
+        <div class="container">
+            <div>
+                <img src="assets/Logo.png" alt="Store Logo" width="400px" height="400px">
+            </div>
+            <a href="cashier.html">Home</a>
+            <a href="store.html">Menu</a>
+        </div>
+        <div class="container">
+            <h2>Attendance Records</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Time In</th>
+                        <th>Time Out</th>
+                    </tr>
+                </thead>
+                <tbody id="logTable"></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="scripts/attendance.js"></script>
+    <script src="scripts/account.js"></script> 
+    <script src="scripts/sidenav.js"></script> 
+</body>
+</html>

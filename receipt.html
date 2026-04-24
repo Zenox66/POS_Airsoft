@@ -3,73 +3,120 @@
 <head>
 <meta charset="UTF-8">
 <title>Receipt</title>
+
 <style>
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printableReceipt, #printableReceipt * {
+    visibility: visible;
+  }
+  #printableReceipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80mm;
+  }
+}
+
+body {
+    font-family: "Courier New", monospace;
+    background: #eee;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+.receipt {
+    width: 280px;
+    background: white;
+    padding: 15px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+h2, p {
+    margin: 2px 0;
+    text-align: center;
+}
+
+.left { text-align: left; }
+.right { text-align: right; }
+
+.line {
+    border-top: 1px dashed black;
+    margin: 8px 0;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.small {
+    font-size: 12px;
+}
+
+.receipt-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.receipt-table th {
+    border-bottom: 1px dashed black;
+    padding: 4px 0;
+}
+
+.receipt-table td {
+    padding: 3px 2px;
+}
+
+.receipt-table td:nth-child(2) {
+    word-break: break-word;
+}
+
+.receipt-table .right {
+    text-align: right;
+}
+
+.receipt-table th:nth-child(1),
+.receipt-table td:nth-child(1) {
+    width: 40px;
+}
+
+.receipt-table th:nth-child(3),
+.receipt-table td:nth-child(3) {
+    width: 70px;
+}
+
+button {
+    margin-top: 10px;
+    width: 100%;
+}
+
+@media print {
     body {
-        font-family: "Courier New", monospace;
-        background: #eee;
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-    }
-
-    img {
-        display: block;
-        margin: 0 auto;
-    }
-
-    .receipt {
-        width: 280px;
         background: white;
-        padding: 15px;
-        box-shadow: 0 0 5px rgba(0,0,0,0.2);
     }
-
-    h2, p {
-        margin: 2px 0;
-        text-align: center;
-    }
-
-    .left { text-align: left; }
-    .right { text-align: right; }
-    .row {
-        display: flex;
-        justify-content: space-between;
-        font-size: 14px;
-    }
-
-    .line {
-        border-top: 1px dashed black;
-        margin: 8px 0;
-    }
-
-    .bold {
-        font-weight: bold;
-    }
-
-    .small {
-        font-size: 12px;
-    }
-
     button {
-        margin-top: 10px;
-        width: 100%;
+        display: none;
     }
-
-    @media print {
-        body {
-            background: white;
-        }
-        button {
-            display: none;
-        }
-    }
+}
 </style>
 </head>
-<body>
 
-<div class="receipt">
+<body>
+<div class="receipt" id="printableReceipt">
+
     <img src="assets/Logo_gray.png" alt="Store Logo" width="200" height="200">
-    <p class="small">75 P. Domingo Street, Carmona, Makati City, 1207 Metro Manila, Philippines</p>
+
+    <p class="small">75 P. Domingo Street, Carmona, Makati City</p>
+    <p class="small">Metro Manila, Philippines</p>
     <p class="small">PHONE#: +63396021923</p>
 
     <div class="line"></div>
@@ -78,12 +125,16 @@
 
     <div class="line"></div>
 
-    <div class="row bold">
-        <span>QTY ITEM</span>
-        <span>TOTAL</span>
-    </div>
-
-    <div id="receiptItems"></div>
+    <table class="receipt-table">
+        <thead>
+            <tr>
+                <th>QTY</th>
+                <th class="left">ITEM</th>
+                <th class="right">TOTAL</th>
+            </tr>
+        </thead>
+        <tbody id="receiptItems"></tbody>
+    </table>
 
     <div class="line"></div>
 
@@ -111,11 +162,11 @@
 
     <div class="line"></div>
 
-    <p class="small">Thank you for Purchasing!</p>
+    <p class="small">Thank you for purchasing!</p>
+
+    <button onclick="window.print()">Print Receipt</button>
 
 </div>
-
 <script src="scripts/receipt.js"></script>
-
 </body>
 </html>

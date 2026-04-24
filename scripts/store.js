@@ -24,6 +24,28 @@ function closeCart() {
     document.getElementById("cartPanel").style.width = "0";
 }
 
+// RENDER ALERT BOX
+function showMessage(message, type) {
+    const alertBox = document.getElementById("customAlert");
+    const title = alertBox.querySelector(".errorType");
+    const text = alertBox.querySelector(".message");
+    const confirmBtn = document.getElementById("confirmBtn");
+    const background = document.getElementById("main");
+    
+
+    title.innerText = type;
+    text.innerText = message;
+
+    alertBox.style.display = "flex";
+    background.style.filter = "blur(1px)"
+
+    confirmBtn.onclick = () => {
+        alertBox.style.display = "none";
+        background.style.filter = "blur(0px)"
+    };
+}
+
+
 // PRICE HELPER
 function getPriceNumber(priceString) {
     return parseFloat(priceString.replace("$", ""));
@@ -152,7 +174,7 @@ document.getElementById("checkoutBtn").onclick = () => {
     let cash = parseFloat(cashInput.value);
 
     if (cart.length === 0) {
-        alert("Cart is empty!");
+        showMessage("Cart is empty!", "Error");
         return;
     }
 
@@ -161,7 +183,7 @@ document.getElementById("checkoutBtn").onclick = () => {
     }, 0);
 
     if (isNaN(cash) || cash < total) {
-        alert("Insufficient cash!");
+        showMessage("Insufficient cash!", "Error");
         return;
     }
 
@@ -177,7 +199,7 @@ document.getElementById("checkoutBtn").onclick = () => {
     cart = [];
     saveCart();
 
-    window.location.href = "../receipt.html";
+    window.open("../receipt.html", "_blank");
     };
 };
 

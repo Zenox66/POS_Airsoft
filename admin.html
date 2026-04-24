@@ -9,19 +9,31 @@
 <body>
     <div id="Sidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="admin.html">Home</a>
-        <a href="Inventory.html">Inventory</a>
-        <a href="Store.html">Cashier</a>
-        <a href="index.html">Log Out</a>
+        <a href="store_admin.html">Menu</a>
+        <a href="inventory_admin.html">Inventory</a>
+        <a href="manageEmployees.html">Employees</a>
+        <a href="attendance-admin.html">Check Attendance</a>
+        <a href="#" class="logoutBtn">Log Out</a>
     </div>
     <div id="main">
-        <header>
-            <a href="javascript:void(0)" onclick="openNav()">&#9776; Menu</a>
-            <img src="assets/Logo_alt.png" alt="Store Logo" width="200" height="200">
-        </header>
-        <table>
-<script src="admin.js"></script>
+        <div class="container">
+            <div class="image">
+                <img src="assets/Logo.png" alt="Store Logo" width="400px" height="400px">
+            </div>
+            <a href="store_admin.html">Menu</a>
+            <a href="inventory_admin.html">Inventory</a>
+            <a href="manageEmployees.html">Manage Employees</a>
+            <a href="attendance-admin.html">Check Attendance</a>
+            <a href="#" class="logoutBtn">Log Out</a>
+            <div class="license-corner">
+                <a rel="license" href="certificate.html" target="_blank">
+                    &copy; Hobby Shop License
+                </a>
+            </div>
+        </div>
     </div>
+    <script src="scripts/admin.js"></script>
+    <script src="scripts/account.js"></script> 
     <script src="scripts/sidenav.js"></script> 
 </body>
 </html>

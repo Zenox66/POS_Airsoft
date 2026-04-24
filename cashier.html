@@ -4,25 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="Sidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="index.html">Home</a>
-        <a href="Store.html">Cashier</a>
-        <a href="index.html">Log Out</a>
+        <a href="store.html">Menu</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="#" class="logoutBtn">Log Out</a>
     </div>
     <div id="main">
         <div class="container">
-            <div>
-                <img src="assets/Logo.png" alt="Store Logo" width="200" height="200">
+            <div class="image">
+                <img src="assets/Logo.png" alt="Store Logo" width="400px" height="400px">
             </div>
-            <a href="cashier.html">Home</a>
-            <a href="Store.html">Cashier</a>
-            <a href="index.html">Log Out</a>
+            <a href="store.html">Menu</a>
+            <a href="attendance.html">View Attendance Records</a>
+            <a href="#" class="logoutBtn">Log Out</a>
+            <div class="license-corner">
+                <a rel="license" href="certificate.html" target="_blank">
+                    &copy; Hobby Shop License
+                </a>
+            </div>
         </div>
     </div>
+    <script src="scripts/account.js"></script> 
     <script src="scripts/sidenav.js"></script> 
 </body>
 </html>

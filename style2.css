@@ -1,7 +1,7 @@
 :root{
-    --background-color: #02370b;
-    --main-color: #5bff00;
-    --secondary-color: #448122;
+    --background-color: #344E41;
+    --main-color: #DAD7CD;
+    --secondary-color: #588157;
     --black-color: #000000;
     --white-color: #ffffff;
     --red-highlight: #ff3131;
@@ -10,6 +10,48 @@
 #openCart{
     width: 100px;
     height: 100px;
+}
+
+.sidenav{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--secondary-color);
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: var(--white-color);
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: var(--main-color);
+}
+
+#main {
+  transition: margin-left .5s;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
 }
 
 body {
@@ -23,6 +65,7 @@ body {
 header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px;
     background: var(--main-color);
     color: var(--black-color);
@@ -89,4 +132,5 @@ header {
 button {
     margin: 5px;
     padding: 5px 10px;
+    cursor: pointer;
 }

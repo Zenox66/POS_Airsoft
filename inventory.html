@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="Sidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="cashier.html">Home</a>
+        <a href="store.html">Menu</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="#" class="logoutBtn">Log Out</a>
+    </div>
+    <div id="main">
+        <header>
+            <img src="../assets/Logo_alt.png" width="200px" height="200px" onclick="openNav()" style="cursor: pointer;">
+            <h1>Inventory</h1>
+        </header>
+        <div class="container">
+            <table class="table-inventory">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+                <tbody id="inventoryTable"></tbody>
+            </table>
+        </div>
+    </div>
+<script src="scripts/inventory.js"></script>
+<script src="scripts/sidenav.js"></script>
+<script src="scripts/account.js"></script>  
+</body>
+</html>

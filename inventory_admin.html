@@ -7,29 +7,43 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="top-bar">
-        <h1>Inventory</h1>
-        <button onclick="goBack()">← Back to POS</button>
+    <div id="Sidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="admin.html">Home</a>
+        <a href="store_admin.html">Menu</a>
+        <a href="manageEmployees.html">Employees</a>
+        <a href="attendance-admin.html">Check Attendance</a>
+        <a href="#" class="logoutBtn">Log Out</a>
     </div>
-
-    <h3>Add Product</h3>
-    <input id="newName" placeholder="Name">
-    <input id="newPrice" placeholder="Price ($)">
-    <input id="newStock" placeholder="Stock">
-    <button onclick="addProduct()">Add</button>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Stock</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody id="inventoryTable"></tbody>
-    </table>
-
+    <div id="main">
+        <header>
+            <img src="../assets/Logo_alt.png" width="200px" height="200px" onclick="openNav()" style="cursor: pointer;">
+            <h1>Inventory</h1>
+        </header>
+        <div class="container">
+            <div>
+                <h3>Add Product</h3>
+                <input id="newName" placeholder="Name">
+                <input id="newPrice" placeholder="Price ($)">
+                <input id="newStock" placeholder="Stock">
+                <button onclick="addProduct()">Add</button>
+            </div>
+            <hr style="width:100%; border:1px solid var(--secondary-color);">
+            <table class="table-inventory">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="inventoryTable"></tbody>
+            </table>
+        </div>
+    </div>
 <script src="scripts/inventory.js"></script>
+<script src="scripts/sidenav.js"></script>
+<script src="scripts/account.js"></script>  
 </body>
 </html>
