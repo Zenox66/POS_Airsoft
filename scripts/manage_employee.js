@@ -1,6 +1,4 @@
-// =====================
 // STORAGE
-// =====================
 function getUsers() {
     return JSON.parse(localStorage.getItem("users")) || [];
 }
@@ -9,9 +7,7 @@ function saveUsers(users) {
     localStorage.setItem("users", JSON.stringify(users));
 }
 
-// =====================
 // ALERT
-// =====================
 function showMessage(message, type) {
     const alertBox = document.getElementById("customAlert");
     const title = alertBox.querySelector(".errorType");
@@ -28,9 +24,7 @@ function showMessage(message, type) {
     };
 }
 
-// =====================
 // CLASS
-// =====================
 class User {
     constructor(username, password, role) {
         this.username = username;
@@ -45,16 +39,12 @@ class Cashier extends User {
     }
 }
 
-// =====================
 // GET EMPLOYEES
-// =====================
 function getEmployees() {
     return getUsers().filter(user => user.role === "cashier");
 }
 
-// =====================
 // ADD EMPLOYEE
-// =====================
 function addEmployee(username, password) {
     let users = getUsers();
 
@@ -84,9 +74,7 @@ function addEmployeeUI() {
     renderTable();
 }
 
-// =====================
 // DELETE EMPLOYEE
-// =====================
 function deleteEmployee(username) {
     let users = getUsers();
 
@@ -103,9 +91,7 @@ function deleteEmployee(username) {
     renderTable();
 }
 
-// =====================
 // EDIT EMPLOYEE
-// =====================
 function editEmployee(username) {
     let users = getUsers();
     let user = users.find(u => u.username === username);
@@ -115,14 +101,12 @@ function editEmployee(username) {
     document.getElementById("editModal").style.display = "block";
     document.getElementById("editOldUsername").value = user.username;
     document.getElementById("editUsername").value = user.username;
-    document.getElementById("editPassword").value = user.password;
 }
 
 // SAVE EDIT
 function saveEdit() {
     let oldUsername = document.getElementById("editOldUsername").value;
     let newUsername = document.getElementById("editUsername").value.trim();
-    let newPassword = document.getElementById("editPassword").value;
 
     let users = getUsers();
 
@@ -131,7 +115,6 @@ function saveEdit() {
     if (!user) return;
 
     user.username = newUsername;
-    user.password = newPassword;
 
     saveUsers(users);
 
@@ -141,14 +124,12 @@ function saveEdit() {
     renderTable();
 }
 
-// CLOSE MODAL
+// CLOSE 
 function closeEdit() {
     document.getElementById("editModal").style.display = "none";
 }
 
-// =====================
 // RENDER TABLE
-// =====================
 function renderTable() {
     let table = document.getElementById("employeeTable");
     let employees = getEmployees();
@@ -160,7 +141,6 @@ function renderTable() {
 
         row.innerHTML = `
             <td>${emp.username}</td>
-            <td>${emp.password}</td>
             <td>${emp.role}</td>
             <td>
                 <button onclick="editEmployee('${emp.username}')">Edit</button>
@@ -172,7 +152,5 @@ function renderTable() {
     });
 }
 
-// =====================
 // INIT
-// =====================
 renderTable();

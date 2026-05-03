@@ -13,7 +13,7 @@ async function initializeProducts() {
                 "scripts/data/product_airsoft_pistol.json",
                 "scripts/data/product_airsoft_rifle.json"
             ];
-            
+            //Error Handling
             let results = await Promise.all(
                 files.map(file => fetch(file).then(res => {
                     console.log(file, res.status);

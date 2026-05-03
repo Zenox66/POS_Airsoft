@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Registration</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="Sidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="../index.html">Home</a>
-        <a href="Login.html">Login</a>
-        <a href="create_employee.html">Sign Up</a>
+    <div id="customAlert" class="alert-box">
+        <div class="alert-content">
+            <h2 class="errorType"></h2>
+            <p class="message"></p>
+            <button id="confirmBtn">OK</button>
+        </div>
     </div>
     <div id="main">
         <form id="register_form_employee" class="container">
-            <div>
-                <img src="../assets/Logo.png" alt="Store Logo" width="200" height="200">
+            <div class="image">
+                <img src="../assets/Logo.png" alt="Store Logo" width="400px" height="400px">
             </div>
             <h1>Create Employee</h1>
             <input type="text" id="username_input" name="Username" placeholder="Username">
@@ -26,9 +27,9 @@
             <input type="password" id="password_Confirmation" name="Repeat Password" placeholder="Confirm Password">
             <br />
             <button type="submit">Submit</button>
+            <a href="index.html">I don't have an account</a>
         </form>
-        <script src="../scripts/account.js"></script>
-        <script src="../scripts/sidenav.js"></script>
+        <script src="scripts/account.js"></script>
     </div>    
 </body>
 </html>

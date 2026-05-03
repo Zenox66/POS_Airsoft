@@ -14,11 +14,12 @@ datetimeEl.innerText = now.toLocaleString();
 // SAFETY CHECK
 if (!data || !data.cart) {
     alert("No receipt data found!");
+    throw new Error("No receipt data");
 }
 
 // GET PRICE NUMBER
 function getPriceNumber(priceString) {
-    return parseFloat(priceString.replace("$", ""));
+    return parseFloat(priceString);
 }
 
 // CALCULATE + DISPLAY ITEMS
